@@ -49,7 +49,7 @@ export function MessageInput({ onSendMessage, onRollDice }: MessageInputProps) {
       <div className="mx-auto max-w-3xl">
         <form onSubmit={handleSubmit}>
           {/* Main input container */}
-          <div className="rounded-2xl border border-border bg-input p-3">
+          <div className="border border-border bg-input p-3 rounded-none">
             {/* Textarea */}
             <textarea
               value={input}

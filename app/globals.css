@@ -3,8 +3,51 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Dark Fantasy Console theme for TTRPG GM app */
+/* Fantasy Parchment & Ink theme for TTRPG GM app */
 :root {
+  --background: oklch(0.95 0.01 80);
+  --foreground: oklch(0.2 0.02 60);
+  --card: oklch(0.93 0.01 80);
+  --card-foreground: oklch(0.2 0.02 60);
+  --popover: oklch(0.95 0.01 80);
+  --popover-foreground: oklch(0.2 0.02 60);
+  --primary: oklch(0.55 0.14 50);
+  --primary-foreground: oklch(0.98 0.005 80);
+  --secondary: oklch(0.9 0.01 80);
+  --secondary-foreground: oklch(0.3 0.02 60);
+  --muted: oklch(0.9 0.01 80);
+  --muted-foreground: oklch(0.5 0.02 60);
+  --accent: oklch(0.55 0.14 50);
+  --accent-foreground: oklch(0.98 0.005 80);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.82 0.02 80);
+  --input: oklch(0.92 0.01 80);
+  --ring: oklch(0.55 0.14 50);
+  --chart-1: oklch(0.55 0.14 50);
+  --chart-2: oklch(0.5 0.12 280);
+  --chart-3: oklch(0.5 0.1 200);
+  --chart-4: oklch(0.55 0.1 140);
+  --chart-5: oklch(0.5 0.15 340);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.92 0.01 80);
+  --sidebar-foreground: oklch(0.25 0.02 60);
+  --sidebar-primary: oklch(0.55 0.14 50);
+  --sidebar-primary-foreground: oklch(0.98 0.005 80);
+  --sidebar-accent: oklch(0.88 0.015 80);
+  --sidebar-accent-foreground: oklch(0.25 0.02 60);
+  --sidebar-border: oklch(0.82 0.02 80);
+  --sidebar-ring: oklch(0.55 0.14 50);
+
+  /* Custom tokens for TTRPG app */
+  --success: oklch(0.55 0.15 145);
+  --success-foreground: oklch(0.98 0 0);
+  --dice: oklch(0.5 0.12 280);
+  --dice-foreground: oklch(0.98 0 0);
+}
+
+/* Dark Fantasy Console theme */
+.dark {
   --background: oklch(0.12 0.005 280);
   --foreground: oklch(0.9 0.01 80);
   --card: oklch(0.15 0.005 280);
@@ -29,7 +72,6 @@
   --chart-3: oklch(0.5 0.1 200);
   --chart-4: oklch(0.65 0.1 140);
   --chart-5: oklch(0.55 0.15 340);
-  --radius: 0rem;
   --sidebar: oklch(0.1 0.005 280);
   --sidebar-foreground: oklch(0.85 0.01 80);
   --sidebar-primary: oklch(0.7 0.12 60);
@@ -44,12 +86,6 @@
   --success-foreground: oklch(0.15 0 0);
   --dice: oklch(0.6 0.12 280);
   --dice-foreground: oklch(0.95 0 0);
-  --shadow-x: 0px;
-  --shadow-y: 1px;
-  --shadow-blur: 2px;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.05;
-  --shadow-color: #000000;
 }
 
 @theme inline {
@@ -95,22 +131,6 @@
   --color-success-foreground: var(--success-foreground);
   --color-dice: var(--dice);
   --color-dice-foreground: var(--dice-foreground);
-  --font-serif: 'Source Serif 4', 'Source Serif 4 Fallback';
-  /* computed shadow variables below - do not modify */
-  --shadow-2xs: var(--shadow-x) var(--shadow-y) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-sm: var(--shadow-x) var(--shadow-y) calc(var(--shadow-blur) * 1.5) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-md: calc(var(--shadow-x) * 2) calc(var(--shadow-y) * 2) calc(var(--shadow-blur) * 3) calc(var(--shadow-spread) - 1px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-lg: calc(var(--shadow-x) * 4) calc(var(--shadow-y) * 4) calc(var(--shadow-blur) * 5) calc(var(--shadow-spread) - 3px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-xl: calc(var(--shadow-x) * 6) calc(var(--shadow-y) * 6) calc(var(--shadow-blur) * 7) calc(var(--shadow-spread) - 5px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
-  --shadow-2xl: calc(var(--shadow-x) * 8) calc(var(--shadow-y) * 8) calc(max(0px, var(--shadow-blur) * 9 - 8px)) calc(var(--shadow-spread) - 12px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 250%), transparent);
-  --shadow: var(--shadow-md);
-  --color-shadow-color: var(--shadow-color);
-  --shadow-opacity: var(--shadow-opacity);
-  --shadow-spread: var(--shadow-spread);
-  --shadow-blur: var(--shadow-blur);
-  --shadow-y: var(--shadow-y);
-  --shadow-x: var(--shadow-x);
 }
 
 @layer base {
@@ -120,45 +140,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-.dark {
-  --background: oklch(0.1450 0 0);
-  --foreground: oklch(0.9850 0 0);
-  --card: oklch(0.2050 0 0);
-  --card-foreground: oklch(0.9850 0 0);
-  --popover: oklch(0.2690 0 0);
-  --popover-foreground: oklch(0.9850 0 0);
-  --primary: oklch(0.9220 0 0);
-  --primary-foreground: oklch(0.2050 0 0);
-  --secondary: oklch(0.2690 0 0);
-  --secondary-foreground: oklch(0.9850 0 0);
-  --muted: oklch(0.2690 0 0);
-  --muted-foreground: oklch(0.7080 0 0);
-  --accent: oklch(0.3710 0 0);
-  --accent-foreground: oklch(0.9850 0 0);
-  --destructive: oklch(0.7040 0.1910 22.2160);
-  --destructive-foreground: oklch(0.9850 0 0);
-  --border: oklch(0.2750 0 0);
-  --input: oklch(0.3250 0 0);
-  --ring: oklch(0.5560 0 0);
-  --chart-1: oklch(0.8100 0.1000 252);
-  --chart-2: oklch(0.6200 0.1900 260);
-  --chart-3: oklch(0.5500 0.2200 263);
-  --chart-4: oklch(0.4900 0.2200 264);
-  --chart-5: oklch(0.4200 0.1800 266);
-  --sidebar: oklch(0.2050 0 0);
-  --sidebar-foreground: oklch(0.9850 0 0);
-  --sidebar-primary: oklch(0.4880 0.2430 264.3760);
-  --sidebar-primary-foreground: oklch(0.9850 0 0);
-  --sidebar-accent: oklch(0.2690 0 0);
-  --sidebar-accent-foreground: oklch(0.9850 0 0);
-  --sidebar-border: oklch(0.2750 0 0);
-  --sidebar-ring: oklch(0.4390 0 0);
-  --shadow-x: 0px;
-  --shadow-y: 1px;
-  --shadow-blur: 2px;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.05;
-  --shadow-color: #000000;
 }

@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { PlusCircle, ChevronLeft, ScrollText, Sword, Shield, User, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -84,6 +85,7 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
             <Settings className="h-4 w-4 text-muted-foreground" />
             Settings
           </button>
+          <ThemeToggle />
         </div>
       </div>
     </aside>
